@@ -126,6 +126,8 @@
 				url: "https://ajax.googleapis.com/ajax/services/feed/load?v=2.0&q=http://feeds.folha.uol.com.br/esporte/rss091.xml&num=20",
 				dataType: "jsonp",
 				success: function(data) {
+					alert('*3*');
+					alert(data);
 					var conteudo = "";
 					$.each(data.responseData.feed.entries, function(key1, val1) {
 						//alert(val1.content);
@@ -145,11 +147,12 @@
 					$("#content_news" ).collapsibleset( "refresh" );
 
 				},error: function(xhr, status, error) {
+					alert('*4*');
 					alert(xhr.responseText);
 					alert(status);
 				 }
 			});
-				
+				alert('*5*');
 			} else {
 				alert('Não existe conexão com a Internet');
 				$.mobile.changePage("#pageone");
