@@ -117,8 +117,39 @@
 		
 			
 		$(document).on('pageinit', '#noticias', function(){  
+			alert('*1');
 			if (isConnected) {
-				//Nao faz nada
+				alert('*2');	
+				//Noticias
+			$.ajax({
+				type: "GET",
+				url: "https://ajax.googleapis.com/ajax/services/feed/load?v=2.0&q=http://feeds.folha.uol.com.br/esporte/rss091.xml&num=20",
+				dataType: "jsonp",
+				success: function(data) {
+					var conteudo = "";
+					$.each(data.responseData.feed.entries, function(key1, val1) {
+						//alert(val1.content);
+						//val1.title;
+						//val1.content;
+						//val1.link;
+						//publishedDate;
+						
+						conteudo = conteudo + '<div data-role="collapsible">';
+						conteudo = conteudo + '<h3>' + val1.title + '</h3>';
+						conteudo = conteudo + '<p>' + val1.content + '</p>';
+						conteudo = conteudo + '</div>';
+						
+					});
+					//alert(conteudo);
+					$("#content_news").append(conteudo);
+					$("#content_news" ).collapsibleset( "refresh" );
+
+				},error: function(xhr, status, error) {
+					alert(xhr.responseText);
+					alert(status);
+				 }
+			});
+				
 			} else {
 				alert('Não existe conexão com a Internet');
 				$.mobile.changePage("#pageone");
@@ -554,35 +585,7 @@
 		//Abrir a pagina de noticias
 		$(document).ready(function() {
 			
-			//Noticias
-			$.ajax({
-				type: "GET",
-				url: "https://ajax.googleapis.com/ajax/services/feed/load?v=2.0&q=http://feeds.folha.uol.com.br/esporte/rss091.xml&num=20",
-				dataType: "jsonp",
-				success: function(data) {
-					var conteudo = "";
-					$.each(data.responseData.feed.entries, function(key1, val1) {
-						//alert(val1.content);
-						//val1.title;
-						//val1.content;
-						//val1.link;
-						//publishedDate;
-						
-						conteudo = conteudo + '<div data-role="collapsible">';
-						conteudo = conteudo + '<h3>' + val1.title + '</h3>';
-						conteudo = conteudo + '<p>' + val1.content + '</p>';
-						conteudo = conteudo + '</div>';
-						
-					});
-					//alert(conteudo);
-					$("#content_news").append(conteudo);
-					$("#content_news" ).collapsibleset( "refresh" );
-
-				},error: function(xhr, status, error) {
-					alert(xhr.responseText);
-					alert(status);
-				 }
-			});
+			
 			
 			//Previsao do Tempo
 			$.get("http://api.openweathermap.org/data/2.5/weather?q=sao paulo&units=metric", function(res,code) {
