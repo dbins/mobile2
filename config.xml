@@ -9,7 +9,7 @@
     </author>
 	<preference name="SplashScreen" value="screen" />
 	<preference name="SplashScreenDelay" value="10000" />
-	<preference name='phonegap-version' value='cli-5.2.0' />
+	<preference name='phonegap-version' value='4.0.0' />
     <preference name="orientation" value="default" /> 
 	<preference name="fullscreen" value="false" />
 	<gap:config-file platform="android" parent="/manifest">
@@ -43,6 +43,7 @@
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />
-    <access origin="*" />
+    <access origin="http://api.openweathermap.org" />
+	<access origin="*" />
 	<allow-navigation href="*" />
 </widget>
