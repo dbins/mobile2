@@ -12,7 +12,9 @@
 	<preference name='phonegap-version' value='cli-5.2.0' />
     <preference name="orientation" value="default" /> 
 	<preference name="fullscreen" value="false" />
-	<application android:debuggable="true" />
+	<gap:config-file platform="android" parent="/manifest">
+     <application android:debuggable="true" />
+	</gap:config-file>
 	<gap:plugin name="cordova-plugin-battery-status" />
     <gap:plugin name="cordova-plugin-camera" />
     <gap:plugin name="cordova-plugin-media-capture" />
