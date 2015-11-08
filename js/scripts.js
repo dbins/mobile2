@@ -1,3 +1,4 @@
+		//http://www.javascriptlint.com/online_lint.php
 		//Funcoes especificas do Phonegap
 		
 		var celular_modelo = "";	
@@ -79,7 +80,7 @@
 			default:
 			  msg = 'Unknown Error';
 			  break;
-		  };
+		  }
 		  //console.log('Error: ' + msg);
 		}
 		
@@ -431,15 +432,15 @@
 		}
 		
 		function getParameterByName(name) {
-			name = name.replace(/[\[]/, "\\\[").replace
-			(/[\]]/, "\\\]");
+			name = name.replace(/[\[]/, "\\\[").replace	(/[\]]/, "\\\]");
 			var regexS = "[\\?&]" + name + "=([^&#]*)";
 			var regex = new RegExp(regexS);
 			var results = regex.exec(currentUrl);
-			if(results == null)
+			if(results == null) {
 			return "";
-			else
+			} else {
 			return decodeURIComponent(results[1].replace (/\+/g, " "));
+			}
 		}
 		
 		function showContacts(contacts) {
@@ -503,8 +504,11 @@
 			var directoryReader = directoryEntry.createReader();
 			directoryReader.readEntries(function(entries){ // success get files and folders
 				for(var i=0; i<entries.length; ++i){
-					if( i%2 == 0) domParent.append('<div class="ui-block-a"><div class="thumbnail"><img src="'+entries[i].fullPath+'" title="'+entries[i].name+'" /></div></div>');
-					else domParent.append('<div class="ui-block-b"><div class="thumbnail"><img src="'+entries[i].fullPath+'" title="'+entries[i].name+'" /></div></div>');
+					if( i%2 == 0) {
+					domParent.append('<div class="ui-block-a"><div class="thumbnail"><img src="'+entries[i].fullPath+'" title="'+entries[i].name+'" /></div></div>');
+					} else {
+					domParent.append('<div class="ui-block-b"><div class="thumbnail"><img src="'+entries[i].fullPath+'" title="'+entries[i].name+'" /></div></div>');
+					}
 					//console.log(entries[i].name);
 				}
 				$.mobile.loading('hide'); 
@@ -574,7 +578,10 @@
 					$("#content_news").append(conteudo);
 					$("#content_news" ).collapsibleset( "refresh" );
 
-				}
+				},error: function(xhr, status, error) {
+					alert(xhr.responseText);
+					alert(status);
+				 }
 			});
 			
 			//Previsao do Tempo
