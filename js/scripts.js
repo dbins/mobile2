@@ -34,7 +34,7 @@
 			// attach events for online and offline detection
 			document.addEventListener("online", onOnline, false);
 			document.addEventListener("offline", onOffline, false);
-			document.addEventListener("batterystatus", onBatteryStatus, false);
+			window.addEventListener("batterystatus", onBatteryStatus, false);
 			
 			var conteudo = "";
 			conteudo = conteudo + 'Modelo: '    + device.model    + '<br />';
