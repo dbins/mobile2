@@ -28,7 +28,6 @@
     <gap:plugin name="cordova-plugin-file-transfer" />
     <gap:plugin name="cordova-plugin-geolocation" />
     <gap:plugin name="cordova-plugin-globalization" />
-    <gap:plugin name="cordova-plugin-inappbrowser" />
     <gap:plugin name="cordova-plugin-media" />
     <gap:plugin name="cordova-plugin-network-information" />
     <gap:plugin name="cordova-plugin-splashscreen" />
